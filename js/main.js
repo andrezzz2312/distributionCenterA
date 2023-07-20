@@ -195,10 +195,10 @@ const buttonContent = {
 		},
 		// src: buttonsText[1],
 	},
-	tourlock15: {
+	turnlock15: {
 		textLeft: '0%',
 		textBottom: '0%',
-		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span><span>TURNSTILE</span></span>`,
+		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span> <span>TURNSTILE</span></span>`,
 		subTitle: `Turnlock 150`,
 		content: [
 			`Deter unauthorized entry `,
@@ -228,14 +228,14 @@ const buttonContent = {
 					`Exiting can also be set up as free out, requiring no credentials`,
 					`Turnstile does not allow tailgating as it only rotates 120\u00B0 then relocks`,
 				],
-				delay: [1, 5, 10, 16],
+				delay: [1, 5, 11, 16],
 			},
 			piggybackingP: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold' data-subId = 'piggybackingP'>Piggybacking Prevention</span>`,
 				content: [
-					`Piggybacking is an attempt to enter in same compartment`,
+					`Piggybacking is an attempt to enter in same compartment\n(requires collusion or force)`,
 					`Credential or biometric is presented`,
 					`Valid credential turns LED green, unlocks turnstile and provides audible tone/voice`,
 					`Door rotates about 30\u00B0, then stops as...`,
@@ -829,6 +829,8 @@ const buttonContent = {
 const rotationContent = {
 	turnlock10:
 		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock100/Turnlock100.spin',
+	turnlock15:
+		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock150/Turnlock150.spin',
 	tourlock18:
 		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin',
 	tourlock182:
@@ -1068,6 +1070,51 @@ function animations() {
 }
 
 // Create the video tags storaged in videoContainer div
+function createVideos(source1, source2, source3) {
+	if (source1) {
+		video1 = document.createElement('video')
+		video1.src = source1
+		video1.muted = true
+		video1.setAttribute('playsinline', 'playsinline')
+		video1.controls = false
+		video1.autoplay = true
+		video1.classList.add('video')
+		video1.style.opacity = 0
+		video1.pause()
+
+		video1Container.appendChild(video1)
+	}
+
+	if (source2) {
+		video2 = document.createElement('video')
+		video2.src = source2
+		video2.loop = true
+		video2.muted = true
+		video2.setAttribute('playsinline', 'playsinline')
+
+		video2.controls = false
+		video2.autoplay = true
+		video2.classList.add('video')
+		video2.style.opacity = 0
+		video2.pause()
+
+		video2Container.appendChild(video2)
+	}
+	if (source3) {
+		video3 = document.createElement('video')
+		video3.src = source3
+		video3.muted = true
+		video3.autoplay = true
+		video3.setAttribute('playsinline', 'playsinline')
+		video3.controls = false
+		video3.classList.add('video')
+		video3.style.opacity = 0
+		video3.pause()
+
+		video3Container.appendChild(video3)
+	}
+}
+
 function createSubVideos(source1, source2, source3) {
 	if (source1) {
 		subVideo1 = document.createElement('video')
@@ -1121,50 +1168,6 @@ function createSubVideos(source1, source2, source3) {
 		subVideo3.pause()
 		// loopContainer.appendChild(subVideo3)
 		subVideo3Container.appendChild(subVideo3)
-	}
-}
-function createVideos(source1, source2, source3) {
-	if (source1) {
-		video1 = document.createElement('video')
-		video1.src = source1
-		video1.muted = true
-		video1.setAttribute('playsinline', 'playsinline')
-		video1.controls = false
-		video1.autoplay = true
-		video1.classList.add('video')
-		video1.style.opacity = 0
-		video1.pause()
-
-		video1Container.appendChild(video1)
-	}
-
-	if (source2) {
-		video2 = document.createElement('video')
-		video2.src = source2
-		video2.loop = true
-		video2.muted = true
-		video2.setAttribute('playsinline', 'playsinline')
-
-		video2.controls = false
-		video2.autoplay = true
-		video2.classList.add('video')
-		video2.style.opacity = 0
-		video2.pause()
-
-		video2Container.appendChild(video2)
-	}
-	if (source3) {
-		video3 = document.createElement('video')
-		video3.src = source3
-		video3.muted = true
-		video3.autoplay = true
-		video3.setAttribute('playsinline', 'playsinline')
-		video3.controls = false
-		video3.classList.add('video')
-		video3.style.opacity = 0
-		video3.pause()
-
-		video3Container.appendChild(video3)
 	}
 }
 
@@ -1667,14 +1670,14 @@ function backButtonFunctionFront() {
 		video2.classList.remove('short-vanish')
 		showCont.innerHTML = ''
 		console.log('back from back')
-		console.log(buttonContent[dataId[0]].content)
+
+		video2.currentTime = 0
 		pageIndex = 'mainMenuFront'
 		console.log(currentButton)
 		createContent(buttonContent[currentButton], currentButton)
-		animations()
-		// backButton.style.pointerEvents = 'all'
 
-		// createBackButton()
+		animations()
+
 		HideShowCont()
 		subVideo1.remove()
 		subVideo2.remove()
@@ -1692,12 +1695,9 @@ function backButtonFunctionBack() {
 		subVideo3.classList.add('short-vanish')
 		subVideoTurn.classList.remove('short-vanish')
 		showCont.innerHTML = ''
-		pageIndex = 'mainMenuBack'
-		createContent(
-			buttonContent[dataId[1]],
 
-			dataId[1]
-		)
+		pageIndex = 'mainMenuBack'
+		createContent(buttonContent[dataId[1]], dataId[1])
 		// backButton.style.pointerEvents = 'all'
 
 		// createBackButton()
