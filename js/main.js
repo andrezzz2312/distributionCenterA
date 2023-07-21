@@ -45,6 +45,7 @@ let videoloop,
 let boxVideo = []
 let buttonShort = []
 let dataId = []
+let dataVariant = []
 let video1check = false
 let video2check = false
 let video3check = false
@@ -107,20 +108,18 @@ mobileCheck()
 
 // var buttonsText = []
 
-mainMenuB.forEach((e, i) => {
-	dataId[i] = e.dataset.id
-	console.log(dataId[i])
-	// const splitText = e.textContent.trim().split('\n')
-	// const splitText = e.textContent
-	// 	.replace(/[\n\r]+|[\s]{2,}/g, ' ')
-	// 	.trim()
-	// 	.split(' ')
-	// splitText[1]
-	// 	? (buttonsText[i] =
-	// 			splitText[0].toLowerCase() + splitText[1].substring(0, 2))
-	// 	: (buttonsText[i] = splitText[0].toLowerCase())
-	// console.log(buttonsText[i])
-})
+// mainMenuB.forEach((e, i) => {
+// const splitText = e.textContent.trim().split('\n')
+// const splitText = e.textContent
+// 	.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+// 	.trim()
+// 	.split(' ')
+// splitText[1]
+// 	? (buttonsText[i] =
+// 			splitText[0].toLowerCase() + splitText[1].substring(0, 2))
+// 	: (buttonsText[i] = splitText[0].toLowerCase())
+// console.log(buttonsText[i])
+// })
 
 const buttonContent = {
 	turnlock10: {
@@ -243,14 +242,14 @@ const buttonContent = {
 					`Turnstile remains locked, forcing both people\nto exit the compartment backwards`,
 					`With optional BE Secure Overhead Sensor System, there is never a breach.\nUnauthorized user always exits to the unsecured side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
 				],
-				delay: [0, 5, 9, 14, 17, 19],
+				delay: [2, 7, 11, 16, 20, 24],
 			},
 			emergencyE: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold' data-subId = 'emergencyE'>Emergency Egress</span>`,
 				content: [
-					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
+					`Upon signal from alarm system, turnstile unlocks\noutbound allowing egress only`,
 				],
 			},
 			finishO: {
@@ -258,10 +257,11 @@ const buttonContent = {
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold' data-subId = 'finishO'>Finish Options</span>`,
 				content: [
-					`Turnstile available in galvanized steel, powder-coated steel or stainless steel`,
-					3,
+					`Turnstile available in anodized or painted aluminum`,
+					2,
+					`Curved metal or plexi-glass wall panels avaliable`,
 					`Tandem space-saving models available`,
-					`Metal screens can be installed in addition to horizontal bars`,
+					`Can be incorporated with metal detectors`,
 				],
 			},
 		},
@@ -1365,9 +1365,9 @@ function createContent(obj, parent) {
 								i + 1
 							}.png`
 							if (isMobile) {
-								image.style.width = '7em'
+								image.style.width = '8em'
 							} else {
-								image.style.width = '10em'
+								image.style.width = '6em'
 							}
 						}
 
@@ -1424,9 +1424,9 @@ function createContent(obj, parent) {
 									i + 1
 								}.png`
 								if (isMobile) {
-									image.style.width = '7em'
+									image.style.width = '8em'
 								} else {
-									image.style.width = '10em'
+									image.style.width = '6em'
 								}
 							}
 
@@ -1947,6 +1947,10 @@ fullscreen_button.addEventListener('click', function (e) {
 })
 
 mainMenuB.forEach((e, i) => {
+	dataId[i] = e.dataset.id
+	dataVariant[i] = e.dataset.variant
+	console.log(dataId[i])
+	console.log(dataVariant)
 	e.addEventListener('click', function (e) {
 		// if (dataId[i] === 'view3') {
 		// 	console.log('perraje')
@@ -1956,12 +1960,21 @@ mainMenuB.forEach((e, i) => {
 		pageIndex = 'mainMenuFront'
 		currentButton = dataId[i]
 		HideShowMainButtons()
+		if (dataVariant[i]) {
+			createVideos(
+				`assets/${dataId[i]}${dataVariant[i]}/${dataId[i]}1.mp4`,
+				`assets/${dataId[i]}${dataVariant[i]}/${dataId[i]}2.mp4`,
+				`assets/${dataId[i]}${dataVariant[i]}/${dataId[i]}3.mp4`
+			)
+			// console.log(dataVariant[i])
+		} else {
+			createVideos(
+				`assets/${dataId[i]}/${dataId[i]}1.mp4`,
+				`assets/${dataId[i]}/${dataId[i]}2.mp4`,
+				`assets/${dataId[i]}/${dataId[i]}3.mp4`
+			)
+		}
 
-		createVideos(
-			`assets/${dataId[i]}/${dataId[i]}1.mp4`,
-			`assets/${dataId[i]}/${dataId[i]}2.mp4`,
-			`assets/${dataId[i]}/${dataId[i]}3.mp4`
-		)
 		/////////////////////////// CURRENT
 
 		if (showCont.innerHTML !== '') {
