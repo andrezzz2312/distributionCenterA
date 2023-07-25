@@ -311,12 +311,11 @@ const buttonContent = {
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold' data-subId = 'finishO'>Finish Options</span>`,
 				content: [
-					`Turnstile available in galvanized steel, powder-coated steel or stainless steel`,
+					`Turnstile available in brushed stainless steel`,
 					1,
-					`Tandem space-saving models available`,
-					`Metal screens can be installed in addition to horizontal bars`,
+					`Other finishes avaliable upon request`,
 				],
-				delay: [1, 2, 3, 4],
+				delay: [1, 2, 3],
 			},
 		},
 	},
@@ -338,7 +337,7 @@ const rotationContent = {
 	circlelockSo2:
 		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin',
 	trilock60:
-		'https://rotation.marketscale.com/Companies/BoonEdam/TriLock60/TriLock60.spin%22',
+		'https://rotation.marketscale.com/Companies/BoonEdam/TriLock60/TriLock60.spin',
 }
 // Display fullscreen button
 if (!isMobile) {
@@ -400,6 +399,7 @@ function animations() {
 			'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
 		createdSubTitle.style.animationDelay = '0.4s'
 		let counter = 0.3
+		console.log(delay)
 		if (delay) {
 			console.log(delay)
 			let inputArray = []
@@ -855,7 +855,7 @@ function createContent(obj, parent) {
 								i + 1
 							}.png`
 							if (isMobile) {
-								image.style.width = '19em'
+								image.style.width = '15em'
 							} else {
 								image.style.width = '24em'
 							}
@@ -864,7 +864,7 @@ function createContent(obj, parent) {
 								i + 1
 							}.png`
 							if (isMobile) {
-								image.style.width = '8em'
+								image.style.width = '6em'
 							} else {
 								image.style.width = '6em'
 							}
@@ -1500,9 +1500,6 @@ mainMenuB.forEach((e, i) => {
 					console.log(buttonContent[globalParent])
 					createContent(buttonContent[dataId[i]], dataId[i])
 				} else {
-					console.log(globalParent)
-					console.log(buttonContent[globalParent])
-
 					createContent(
 						buttonContent[globalParent].boxInfo[pageIndex],
 						dataId[i]
@@ -1512,6 +1509,7 @@ mainMenuB.forEach((e, i) => {
 				animations()
 				if (subVideo2) {
 					subVideo2.currentTime = 0
+					subVideo2.play()
 				}
 
 				// if (buttonsText[i] === 'whyF') {
