@@ -105,6 +105,12 @@ window.mobileCheck = function () {
 	console.log(isMobile)
 }
 mobileCheck()
+let isIOS
+if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+	isIOS = true
+} else {
+	isIOS = false
+}
 
 // var buttonsText = []
 
@@ -342,7 +348,10 @@ const rotationContent = {
 // Display fullscreen button
 if (!isMobile) {
 	fullscreen_button.style.display = 'none'
+} else if (isIOS) {
+	fullscreen_button.style.display = 'none'
 }
+
 // else {
 // if (isIOS) {
 // 	fullscreen_button.style.display = 'none'
