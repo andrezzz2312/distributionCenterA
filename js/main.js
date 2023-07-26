@@ -291,7 +291,7 @@ const buttonContent = {
 				content: [
 					`User presses randomizer button`,
 					`LED arrows direct user to the left or right`,
-					`Depending on lane configuration, one option sends user directly\nto exit; the other option sends user to secondary screening area`,
+					`Depending on lane configuration, one option sends user directly to exit; the other option sends user to secondary screening area`,
 					`Trilock arms unlock on the side to which user is directed`,
 					`User pushes arm to pas through`,
 					`Trilock relocks and waits to the next user`,
