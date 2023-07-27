@@ -299,17 +299,17 @@ const buttonContent = {
 					`LED arrows direct user to the left or right`,
 					`Depending on lane configuration, one option sends user directly to exit; the other option sends user to secondary screening area`,
 					`Trilock arms unlock on the side to which user is directed`,
-					`User pushes arm to pas through`,
-					`Trilock relocks and waits to the next user`,
+					`User pushes arm to pass through`,
+					`Trilock relocks and waits for next user`,
 				],
-				delay: [1, 7, 10, 16],
+				delay: [1, 7, 12, 20, 25, 31],
 			},
 			emergencyE: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold' data-subId = 'emergencyE'>Emergency Egress</span>`,
 				content: [
-					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
+					`Upon signal from alarm system, turnstile unlocks outbound allowing egress only`,
 				],
 			},
 			finishO: {
@@ -329,21 +329,21 @@ const buttonContent = {
 
 const rotationContent = {
 	turnlock10:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock100/Turnlock100.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock100/Turnlock100.spin?fullscreen=false',
 	turnlock15:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock150/Turnlock150.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock150/Turnlock150.spin?fullscreen=false',
 	tourlock18:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin?fullscreen=false',
 	tourlock182:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin?fullscreen=false',
 	lifelineSw:
-		'https://rotation.marketscale.com/Companies/BoonEdam/LifeLineSwing/LifeLineSwing.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/LifeLineSwing/LifeLineSwing.spin?fullscreen=false',
 	circlelockSo:
-		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin?fullscreen=false',
 	circlelockSo2:
-		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin?fullscreen=false',
 	trilock60:
-		'https://rotation.marketscale.com/Companies/BoonEdam/TriLock60/TriLock60.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/TriLock60/TriLock60.spin?fullscreen=false',
 }
 // Display fullscreen button
 if (!isMobile) {
