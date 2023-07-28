@@ -642,6 +642,7 @@ function createSubVideos(source1, source2, source3) {
 		subVideo2.src = source2
 		if (
 			currentButton === 'turnlock10' ||
+			currentButton === 'turnlock15' ||
 			currentButton === 'tourlock18' ||
 			currentButton === 'tourlock182' ||
 			currentButton === 'circlelockSo' ||
