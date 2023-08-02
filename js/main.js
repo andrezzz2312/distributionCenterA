@@ -214,11 +214,18 @@ const buttonContent = {
 		],
 		inputButtonGrid: [
 			`Standard\nOperation`,
+			`Operation With\nMetal Detector`,
 			`Piggybacking\nPrevention`,
 			`Emergency\nEgress`,
 			`Finish\nOptions`,
 		],
-		inputButtonId: [`standardO`, `piggybackingP`, `emergencyE`, `finishO`],
+		inputButtonId: [
+			`standardO`,
+			`operationW`,
+			`piggybackingP`,
+			`emergencyE`,
+			`finishO`,
+		],
 		boxInfo: {
 			standardO: {
 				textLeft: '0%',
@@ -234,6 +241,22 @@ const buttonContent = {
 					`Turnstile does not allow tailgating as it only rotates 120\u00B0 then relocks`,
 				],
 				delay: [1, 5, 11, 16],
+			},
+			operationW: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: `<span style = 'font-weight:bold' data-subId = 'standardO'>Operation with Metal Detector</span>`,
+
+				content: [
+					`Credential or biometric is presented`,
+					`Valid credential turns LED green, unlocks turnstile and provides (tone/voice)`,
+					`User walks through metal detector`,
+					`If no metal is detected, turnstile unlocks, rotates 120\u00B0, then stops and relocks`,
+					`If metal is detected, turnstile remains locked and alarm sounds`,
+					`User must exit the turnstile backwards to divest metal`,
+					`Configuration can be provided with a metal detector for inbound and outbound traffic flow`,
+				],
+				delay: [2, 6, 11, 14, 20, 22, 24],
 			},
 			piggybackingP: {
 				textLeft: '0%',
@@ -1310,7 +1333,8 @@ function createBackButton(param) {
 			pageIndex === 'tailgatingP2' ||
 			pageIndex === 'glassO' ||
 			pageIndex === 'piggybackingP1' ||
-			pageIndex === 'piggybackingP2'
+			pageIndex === 'piggybackingP2' ||
+			pageIndex === 'operationW'
 		) {
 			console.log('submenu')
 			backButton.addEventListener('click', backButtonFunctionFront)
