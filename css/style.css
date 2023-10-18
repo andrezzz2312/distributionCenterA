@@ -151,6 +151,10 @@ body {
 	position: absolute;
 	height: 100%;
 	width: 100%;
+	overscroll-behavior-x: none;
+}
+html {
+	overscroll-behavior-x: none;
 }
 
 .centerContainer {
