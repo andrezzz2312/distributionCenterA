@@ -102,7 +102,7 @@ window.mobileCheck = function () {
 		)
 			isMobile = true
 	})(navigator.userAgent || window.opera)
-	console.log(isMobile)
+	// console.log(isMobile)
 }
 mobileCheck()
 let isIOS
@@ -732,7 +732,7 @@ function HideShowCont() {
 
 // Set animations for the buttons
 function animations() {
-	console.trace()
+	// console.trace()
 	if (pCont) {
 		// paragraph.style.animation = 'fadein 0.5s ease-in-out forwards'
 
@@ -747,13 +747,13 @@ function animations() {
 			'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
 		createdSubTitle.style.animationDelay = '0.4s'
 		let counter = 0.3
-		console.log(delay)
+		// console.log(delay)
 		if (delay) {
-			console.log(delay)
+			// console.log(delay)
 			let inputArray = []
 			let bool = false
 			subVideo2.addEventListener('timeupdate', function () {
-				console.log(subVideo2.currentTime)
+				// console.log(subVideo2.currentTime)
 				//currentTime use second, if you want min *60
 
 				delay.forEach((element, i) => {
@@ -763,7 +763,7 @@ function animations() {
 								'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
 
 							inputArray.push(Math.floor(subVideo2.currentTime))
-							console.log(inputArray)
+							// console.log(inputArray)
 						} else {
 							if (
 								element ===
@@ -776,7 +776,7 @@ function animations() {
 									if (Math.floor(subVideo2.currentTime) === 36) {
 										const elementContainersId =
 											document.querySelectorAll('#pCont1')
-										console.log(elementContainersId)
+										// console.log(elementContainersId)
 										elementContainersId.forEach((element) => {
 											element.style.animation =
 												'vanishpCont 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards '
@@ -803,7 +803,7 @@ function animations() {
 									if (Math.floor(subVideo2.currentTime) === 35) {
 										const elementContainersId =
 											document.querySelectorAll('#pCont1')
-										console.log(elementContainersId)
+										// console.log(elementContainersId)
 										elementContainersId.forEach((element) => {
 											element.style.animation =
 												'vanishpCont 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards '
@@ -830,7 +830,7 @@ function animations() {
 									if (Math.floor(subVideo2.currentTime) === 30) {
 										const elementContainersId =
 											document.querySelectorAll('#pCont1')
-										console.log(elementContainersId)
+										// console.log(elementContainersId)
 										elementContainersId.forEach((element) => {
 											element.style.animation =
 												'vanishpCont 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards '
@@ -859,7 +859,7 @@ function animations() {
 									inputArray.push(Math.floor(subVideo2.currentTime))
 								}
 
-								console.log(inputArray)
+								// console.log(inputArray)
 							}
 						}
 					}
@@ -882,7 +882,7 @@ function animations() {
 				}
 			})
 		} else {
-			console.log('else delay')
+			// console.log('else delay')
 
 			elementContainers.forEach((element, i) => {
 				element.style.animation =
@@ -1021,7 +1021,7 @@ function createSubVideos(source1, source2, source3) {
 
 // Create the content storaged in showCont div / Left and Top position of the container div, label title and content of the paragraph
 function createContent(obj, parent) {
-	console.trace()
+	// console.trace()
 	delay = ''
 
 	textLeft = obj.textLeft
@@ -1097,7 +1097,7 @@ function createContent(obj, parent) {
 
 				pageIndex = buttonShort[i]
 				// 	// Con esto veo que boton es /////////////////////////////////
-				console.log(buttonShort[i])
+				// console.log(buttonShort[i])
 				createSubVideos(
 					`assets/${parent}/${buttonShort[i]}/${buttonShort[i]}1.mp4`,
 					`assets/${parent}/${buttonShort[i]}/${buttonShort[i]}2.mp4`,
@@ -1141,7 +1141,7 @@ function createContent(obj, parent) {
 							setTimeout(() => {
 								subVideo1.play()
 								subVideo1.addEventListener('ended', () => {
-									console.log('subVideo1 ending')
+									// console.log('subVideo1 ending')
 									// createBackButton()
 									animations()
 									InterpolateVideo(video3, subVideo1, subVideo2)
@@ -1187,7 +1187,7 @@ function createContent(obj, parent) {
 			if (delayInput) {
 				delay = delayInput
 			}
-			console.log(currentButton)
+			// console.log(currentButton)
 			pContent.forEach((e) => {
 				if (Number.isInteger(e)) {
 					elementContainer = document.createElement('span')
@@ -1246,7 +1246,7 @@ function createContent(obj, parent) {
 				if (delayInput) {
 					delay = delayInput
 				}
-				console.log(currentButton)
+				// console.log(currentButton)
 				pContent2.forEach((e) => {
 					if (Number.isInteger(e)) {
 						elementContainer = document.createElement('span')
@@ -1364,8 +1364,8 @@ function setFontSizes() {
 	}
 }
 function createRotation() {
-	console.log(currentButton)
-	console.log(pageIndex)
+	// console.log(currentButton)
+	// console.log(pageIndex)
 	// if (rotation) {
 	// 	rotation.innerHTML = ''
 	// }
@@ -1415,7 +1415,7 @@ function exitRotation() {
 	// 	'#centerContainer_backButton'
 	// )
 	// centerContainerBackButton.remove()
-	console.log('remove show')
+	// console.log('remove show')
 	rotation.classList.remove('show')
 	rotation.classList.add('short-vanish')
 	createContent(buttonContent[currentButton], currentButton)
@@ -1427,8 +1427,8 @@ function exitRotation() {
 	window.removeEventListener('resize', resizeRotation)
 }
 function backButtonFunction() {
-	console.log('backbuttonfunction')
-	console.log(buttonGridContainer)
+	// console.log('backbuttonfunction')
+	// console.log(buttonGridContainer)
 
 	ArreglarLineas()
 	buttonGrid.style.pointerEvents = 'none'
@@ -1468,7 +1468,7 @@ function backButtonFunction() {
 	})
 }
 function backButtonFunctionFromBack() {
-	console.log('working')
+	// console.log('working')
 	ArreglarLineas()
 
 	subVideoTurn.play()
@@ -1477,7 +1477,7 @@ function backButtonFunctionFromBack() {
 	loop.currentTime = 0
 	loop.pause()
 	subVideoTurn.addEventListener('ended', () => {
-		console.log('subVideoTurn ending')
+		// console.log('subVideoTurn ending')
 		loop.classList.remove('short-vanish')
 		loop.classList.add('show')
 
@@ -1485,7 +1485,7 @@ function backButtonFunctionFromBack() {
 			loop.play()
 		}, 0)
 		subVideoTurn.classList.add('short-vanish')
-		console.log(pageIndex)
+		// console.log(pageIndex)
 		loop.style.zIndex = '-1'
 		if (subVideo1) {
 			subVideo1.remove()
@@ -1509,7 +1509,7 @@ function backButtonFunctionFromBack() {
 function backButtonFunctionFront() {
 	ArreglarLineas()
 
-	console.log('backbuttonfunctionfront')
+	// console.log('backbuttonfunctionfront')
 	backButton.style.pointerEvents = 'none'
 
 	InterpolateVideo(subVideo2, subVideo2, subVideo3)
@@ -1518,11 +1518,11 @@ function backButtonFunctionFront() {
 		subVideo3.classList.add('short-vanish')
 		video2.classList.remove('short-vanish')
 		showCont.innerHTML = ''
-		console.log('back from back')
+		// console.log('back from back')
 
 		video2.currentTime = 0
 		pageIndex = 'mainMenuFront'
-		console.log(currentButton)
+		// console.log(currentButton)
 		createContent(buttonContent[currentButton], currentButton)
 
 		animations()
@@ -1558,7 +1558,7 @@ function backButtonFunctionBack() {
 }
 
 function createBackButton(param) {
-	console.log(pageIndex)
+	// console.log(pageIndex)
 	if (param === 'rotationPage') {
 		const centerContainerMade = document.createElement('div')
 		centerContainerMade.classList.add('centerContainer')
@@ -1580,7 +1580,7 @@ function createBackButton(param) {
 
 		backButtonRotation.classList.add('button')
 		backButtonRotation.addEventListener('click', exitRotation)
-		console.log(backButtonRotation)
+		// console.log(backButtonRotation)
 		backButtonRotation.textContent = 'Back'
 		backButtonRotation.style.pointerEvents = 'all'
 		backButtonContainer = document.createElement('div')
@@ -1653,7 +1653,7 @@ function createBackButton(param) {
 			pageIndex === 'piggybackingP2' ||
 			pageIndex === 'operationW'
 		) {
-			console.log('submenu')
+			// console.log('submenu')
 			backButton.addEventListener('click', backButtonFunctionFront)
 		} else if (
 			pageIndex === 'easyR' ||
@@ -1799,11 +1799,11 @@ fullscreen_button.addEventListener('click', function (e) {
 mainMenuB.forEach((e, i) => {
 	dataId[i] = e.dataset.id
 	dataVariant[i] = e.dataset.variant
-	console.log(dataId[i])
-	console.log(dataVariant)
+	// console.log(dataId[i])
+	// console.log(dataVariant)
 	e.addEventListener('click', function (e) {
 		// if (dataId[i] === 'view3') {
-		// 	console.log('perraje')
+		// console.log('perraje')
 		// 	return
 		// }
 
@@ -1834,7 +1834,7 @@ mainMenuB.forEach((e, i) => {
 		}
 
 		createContent(buttonContent[dataId[i]], dataId[i])
-		console.log(dataId[i])
+		// console.log(dataId[i])
 		window.addEventListener('resize', function (e) {
 			if (showCont.hasChildNodes()) {
 				const textContainer = document.querySelector('#centerContainer_text')
@@ -1845,10 +1845,10 @@ mainMenuB.forEach((e, i) => {
 				textContainer.remove()
 
 				// backButtonContainer.remove()
-				console.log(pageIndex)
+				// console.log(pageIndex)
 				if (pageIndex === 'mainMenuFront') {
-					console.log(globalParent)
-					console.log(buttonContent[globalParent])
+					// console.log(globalParent)
+					// console.log(buttonContent[globalParent])
 					createContent(buttonContent[dataId[i]], dataId[i])
 				} else {
 					createContent(
@@ -1914,10 +1914,10 @@ mainMenuB.forEach((e, i) => {
 								dataId[i] === 'in-houseT' ||
 								dataId[i] === 'useC'
 							) {
-								console.log(video2, video3)
+								// console.log(video2, video3)
 								video2.loop = false
 								video2.addEventListener('ended', () => {
-									console.log('se ha hecho ')
+									// console.log('se ha hecho ')
 
 									backButtonFunction()
 								})
